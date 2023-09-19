@@ -1,29 +1,69 @@
-# Cliente HTML y Servidor Node.js
+# Readme del Servidor HTTP en Node.js
 
-Este proyecto consiste en un cliente HTML simple que permite a los usuarios escribir un mensaje en un campo de texto y luego enviarlo a un servidor Node.js. El servidor Node.js recibe el mensaje, agrega un mensaje adicional y devuelve una respuesta que se muestra en la página web del cliente.
+Esta aplicación Node.js crea un servidor HTTP que responde a las solicitudes del cliente con HTML que contiene información sobre la solicitud. El servidor maneja tanto las solicitudes GET como las POST y muestra los encabezados y los datos relevantes de la solicitud.
 
-## Requisitos
-
-Asegúrate de tener instalado Node.js en tu sistema antes de ejecutar el servidor Node.js.
-
-## Instrucciones de uso
+## Empezar
 
 1. Clona este repositorio en tu máquina local.
 
-2. Ejecuta el servidor Node.js:
+2. Asegúrate de tener Node.js instalado en tu sistema. 
+
+3. Abre una terminal y navega hasta el directorio del repositorio clonado.
+
+4. Ejecuta el servidor utilizando el siguiente comando:
+
+   ```bash
+   node server2.js
+
+## Uso
+
+### Solicitud GET 
+
+Puedes acceder al servidor utilizando un navegador web o una herramienta como cURL. Si abres el navegador Firefox y visitas la siguiente URL:
+          
+          http://localhost:3000/datos?campo1=12&campo2=34
+
+El navegador mostrará una respuesta similar a la siguiente:
+
+          Request Headers:
+          {
+            "host": "localhost:3000",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0",
+            "äccept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "accept-languaje": "es-MX, es;q=0.8,en=US;q=0.5,en;q=0.3",
+            "accept-encoding": "gzip,deflate",
+            "dnt": "1",
+            "connection": "keep-alive",
+            "cookie": "Webstorz-b23919f4=b44daf52-f984-482d-9988-8a735cb09d87",
+            "upgrade-insecure-request": "1"
+          }
+          
+          Método: GET
+          
+          URL: /datos?campo1=12&campo2=34
 
 
-El servidor se ejecutará en el puerto 3001.
+### Solicitud POST
 
-3. Abre el archivo `index.html` en tu navegador web.
+Para la solicitud POST, puedes utilizar el formulario HTML en http://localhost:3000/post.html para enviar datos al servidor. El servidor responderá con información sobre la solicitud POST. Teclea los datos del campo 1 y campo 2 y presiona el boton.
 
-4. Escribe un mensaje en el campo de texto y haz clic en el botón "Enviar Mensaje".
+El navegador mostrará una respuesta similar a la siguiente:
 
-5. El cliente enviará el mensaje al servidor, que responderá con el mensaje recibido más un mensaje adicional. La respuesta se mostrará en la página web del cliente.
-
-## Ejemplo
-
-Si escribes "Hola, servidor" en el campo de texto y haces clic en el botón "Enviar Mensaje", la página mostrará:
-
-Servidor Node.js: Mensaje recibido: Hola
-
+          Request Headers:
+          {
+            "host": "localhost:3000",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0",
+            "äccept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "accept-languaje": "es-MX, es;q=0.8,en=US;q=0.5,en;q=0.3",
+            "accept-encoding": "gzip,deflate",
+            "content-type": "aplication/x-www-form-urlencoded",
+            "content-length": "21",
+            "dnt": "1",
+            "connection": "keep-alive",
+            "cookie": "Webstorz-b23919f4=b44daf52-f984-482d-9988-8a735cb09d87",
+            "upgrade-insecure-request": "1"
+          }
+          
+          Método: POST
+          
+          Datos enviados: campo1=Dato1%2C+Dato2
