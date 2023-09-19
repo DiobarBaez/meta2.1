@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cliente HTML</title>
+</head>
+<body>
+  <h1>Cliente HTML</h1>
+  <p>Escribe un mensaje y haz clic en el botón para enviarlo al servidor Node.js:</p>
+  <input type="text" id="mensajeInput" placeholder="Escribe tu mensaje">
+  <button onclick="enviarMensaje()">Enviar Mensaje</button>
+  <p id="respuesta"></p>
+
+  <script>
+    function enviarMensaje() {
+      const mensaje = document.getElementById('mensajeInput').value;
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', `http://localhost:3001/mensaje?mensaje=${mensaje}`, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            document.getElementById('respuesta').textContent = xhr.responseText;
+            console
+          }
+        }else{
+          docu
+        }
+      };
+      xhr.send();
+    }
+  </script>
+</body>
+</html>
